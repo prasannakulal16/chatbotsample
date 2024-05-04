@@ -3,22 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
     <title>Document</title>
   </head>
   <body>
     <script type="module">
-      import ChatbotSDK from "https://cdn.jsdelivr.net/npm/new-super-chat@1.0.5/dist/ad0d3bef5924c76c7ac5.js";
-
-      fetch("https://cdn.jsdelivr.net/npm/new-super-chat@1.0.2/dist/index.html")
-        .then((response) => response.text())
-        .then((html) => {
-          // Use the fetched HTML content here
-          document.body.innerHTML = html;
-        });
-
-      const apiKey = "your_api_key_here";
-      const chatbot = new ChatbotSDK(apiKey);
-      chatbot.initChatbot();
+      import "https://cdn.jsdelivr.net/npm/chatbotquai@2.0.12/dist/bundle.js";
+      // Wait for the bundle to be loaded
+      window.addEventListener("load", () => {
+        // Access the ChatbotSDK class from the global scope
+        const chatbot = new window.ChatbotSDK("your-api-key");
+        chatbot.initChatbot();
+      });
     </script>
   </body>
 </html>
